@@ -1,0 +1,28 @@
+{
+  "name": "br4ther-be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
+  },
+  "keywords": [
+    "express",
+    "dotenv",
+    "mysql"
+  ],
+  "author": "br4ther",
+  "license": "ISC",
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.0.0-beta.2",
+    "mysql2": "^3.9.2",
+    "nodemon": "^3.1.0",
+    "prisma": "^5.11.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.11.0"
+  }
+}
