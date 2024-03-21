@@ -2,7 +2,7 @@
  
 Brader Store adalah sebuah website online shop yang dimana memfasilitasi kepada pencinta sneaker untuk mencari sneaker impian anda
 
-disini selama project ini berlangsung terdiri dari 4 anggota dan dibagi berbagai divisi:
+Selama project ini berlangsung terdiri dari 4 anggota dan dibagi berbagai divisi:
 1. Ghozy sebagai UI/UX Designer
 2. Rinaldi sebagai Front-End Developer
 3. Farhan sebagai Back-End Developer
