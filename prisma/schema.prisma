@@ -44,10 +44,9 @@ model Product {
   updateAt  DateTime? @default(now())
 
   // Relation
-  categoryId  Int
-  Category    Category  @relation(fields: [categoryId], references: [id])
-  itemOrderId Int
-  itemOrder   itemOrder @relation(fields: [itemOrderId], references: [id])
+  categoryId Int
+  Category   Category    @relation(fields: [categoryId], references: [id])
+  itemOrder  itemOrder[]
 }
 
 model Category {
@@ -77,6 +76,7 @@ model itemOrder {
   id Int @id @unique @default(autoincrement())
 
   // Relation
-  product Product[] // 1 itemOrder bisa punya banyak Produk
-  order   Order[]
+  productId Int
+  Product   Product @relation(fields: [productId], references: [id])
+  order     Order[]
 }
