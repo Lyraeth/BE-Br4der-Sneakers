@@ -1,6 +1,6 @@
 # BR4DER STORE
  
-Brader Store adalah sebuah website online shop yang dimana memfasilitasi kepada pencinta sneaker untuk mencari sneaker impian anda
+Brader Store adalah sebuah website online shop yang dimana memfasilitasi kepada pencinta sneakers untuk mencari sneakers impian anda.
 
 Selama project ini berlangsung terdiri dari 4 anggota dan dibagi berbagai divisi:
 1. Ghozy sebagai UI/UX Designer
