@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE `order` MODIFY `dateOrder` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3);
+
+-- AlterTable
+ALTER TABLE `user` MODIFY `phone` VARCHAR(20) NOT NULL;

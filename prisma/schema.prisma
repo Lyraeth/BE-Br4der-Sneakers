@@ -18,12 +18,13 @@ model User {
   name         String
   email        String    @unique
   password     String
-  phone        Int       @unique
+  phone        String    @unique @db.VarChar(20)
   address      String
   gender       String
   profileImage String?
   createdAt    DateTime? @default(now())
   updateAt     DateTime? @default(now())
+  Order        Order[]
 }
 
 model userAdmin {
@@ -62,14 +63,15 @@ model Category {
 model Order {
   id          Int       @id @default(autoincrement())
   statusOrder String
-  dateOrder   DateTime
+  dateOrder   DateTime? @default(now())
   totalOrder  Int
   createdAt   DateTime? @default(now())
   updateAt    DateTime? @default(now())
 
   // Relation
-  itemOrderId Int
-  itemOrder   itemOrder @relation(fields: [itemOrderId], references: [id])
+  orderBy   Int
+  User      User        @relation(fields: [orderBy], references: [id])
+  itemOrder itemOrder[]
 }
 
 model itemOrder {
@@ -78,5 +80,6 @@ model itemOrder {
   // Relation
   productId Int
   Product   Product @relation(fields: [productId], references: [id])
-  order     Order[]
+  orderId   Int
+  Order     Order   @relation(fields: [orderId], references: [id])
 }

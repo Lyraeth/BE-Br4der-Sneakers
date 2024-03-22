@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 const { prisma } = require("./config/prisma");
 const { userRoutes } = require("./routes/userRoutes");
+const { categoryRoutes } = require("./routes/categoryRoutes");
 
 // Callback <> biar Req App express kepake
 app.use(cors());
@@ -29,5 +30,8 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server is already running at ${PORT}`);
 });
 
-// userRoute
+// userRoutes
 app.use("/users", userRoutes);
+
+// categoryRoutes
+app.use("/category", categoryRoutes);
