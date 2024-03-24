@@ -40,8 +40,6 @@ model Product {
   id        Int       @id @unique @default(autoincrement())
   name      String    @unique
   desc      String
-  size      Int
-  color     String
   price     Int
   stock     Int
   imageUrl  String?

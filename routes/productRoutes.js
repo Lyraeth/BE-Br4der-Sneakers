@@ -31,8 +31,6 @@ productRoutes.post("/", async (req, res) => {
     data: {
       name: productData.name,
       desc: productData.desc,
-      size: productData.size,
-      color: productData.color,
       price: productData.price,
       stock: productData.stock,
       imageUrl: productData.imageUrl,
@@ -54,8 +52,6 @@ productRoutes.put("/:id", async (req, res) => {
     !(
       productData.name &&
       productData.desc &&
-      productData.size &&
-      productData.color &&
       productData.price &&
       productData.stock &&
       productData.imageUrl &&
@@ -74,8 +70,6 @@ productRoutes.put("/:id", async (req, res) => {
     data: {
       name: productData.name,
       desc: productData.desc,
-      size: productData.size,
-      color: productData.color,
       price: productData.price,
       stock: productData.stock,
       imageUrl: productData.imageUrl,
@@ -100,8 +94,6 @@ productRoutes.patch("/:id", async (req, res) => {
     data: {
       name: productData.name,
       desc: productData.desc,
-      size: productData.size,
-      color: productData.color,
       price: productData.price,
       stock: productData.stock,
       imageUrl: productData.imageUrl,
