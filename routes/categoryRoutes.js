@@ -1,5 +1,7 @@
 const express = require("express");
-const { prisma } = require("../config/prisma");
+const {
+  prisma
+} = require("../config/prisma");
 const categoryRoutes = express.Router();
 
 // GET ALL CATEGORIES
@@ -15,11 +17,13 @@ categoryRoutes.get("/:id", async (req, res) => {
       id: parseInt(req.params.id),
     },
   });
+
   if (!category) {
     req.status(400).jason({
       message: "category not found!",
     });
-  }
+  };
+
   res.status(200).send(category);
 });
 
@@ -38,23 +42,6 @@ categoryRoutes.post("/", async (req, res) => {
   res.status(200).json({
     data: category,
     message: "Category created, successfully!",
-  });
-});
-
-// DELETE CATEGORY BY ID
-categoryRoutes.delete("/:id", async (req, res) => {
-  const categoryId = req.params.id;
-  if (!categoryId) {
-    res.status(400).send("id not found");
-  }
-
-  await prisma.category.delete({
-    where: {
-      id: parseInt(categoryId),
-    },
-  });
-  res.status(200).json({
-    message: "category deleted successfully!",
   });
 });
 
@@ -77,7 +64,7 @@ categoryRoutes.put("/:id", async (req, res) => {
   });
 });
 
-// UPDATE CATEGORY per-Fields
+// UPDATE CATEGORY WITH SELECTED FIELDS
 categoryRoutes.patch("/:id", async (req, res) => {
   const categoryData = req.body;
 
@@ -93,6 +80,34 @@ categoryRoutes.patch("/:id", async (req, res) => {
   res.status(200).json({
     data: category,
     message: "Category updated successfully!",
+  });
+});
+
+// DELETE CATEGORY BY ID
+categoryRoutes.delete("/:id", async (req, res) => {
+  const categoryId = req.params.id;
+
+  const category = await prisma.category.findUnique({
+    where: {
+      id: parseInt(categoryId),
+    },
+  });
+
+  if (!category) {
+    return res.status(400).json({
+      message: "Category data not found!",
+    });
+  }
+
+  await prisma.category.delete({
+    where: {
+      id: parseInt(categoryId),
+    },
+  });
+
+  res.status(200).json({
+    data: category,
+    message: "category deleted successfully!",
   });
 });
 

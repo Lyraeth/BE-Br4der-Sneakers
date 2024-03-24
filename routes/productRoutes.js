@@ -1,5 +1,7 @@
 const express = require("express");
-const { prisma } = require("../config/prisma");
+const {
+  prisma
+} = require("../config/prisma");
 const productRoutes = express.Router();
 
 // GET ALL PRODUCTS
@@ -15,11 +17,13 @@ productRoutes.get("/:id", async (req, res) => {
       id: parseInt(req.params.id),
     },
   });
+
   if (!product) {
     return res.status(400).json({
       messasge: "Product not found!",
     });
-  }
+  };
+
   res.status(200).send(product);
 });
 
@@ -111,6 +115,18 @@ productRoutes.patch("/:id", async (req, res) => {
 productRoutes.delete("/:id", async (req, res) => {
   const productId = req.params.id;
 
+  const product = await prisma.product.findUnique({
+    where: {
+      id: parseInt(productId),
+    },
+  });
+
+  if (!product) {
+    return res.status(400).json({
+      message: "Product data not found!",
+    });
+  }
+
   await prisma.product.delete({
     where: {
       id: parseInt(productId),
@@ -118,6 +134,7 @@ productRoutes.delete("/:id", async (req, res) => {
   });
 
   res.status(200).json({
+    data: product,
     message: "Product deleted successfully!",
   });
 });
