@@ -30,6 +30,8 @@ model User {
 model userAdmin {
   id        Int       @id @unique @default(autoincrement())
   name      String
+  email     String    @unique
+  password  String
   createdAt DateTime? @default(now())
   updateAt  DateTime? @default(now())
 }
@@ -38,15 +40,17 @@ model Product {
   id        Int       @id @unique @default(autoincrement())
   name      String    @unique
   desc      String
+  size      Int
+  color     String
   price     Int
   stock     Int
-  imageUrl  String
+  imageUrl  String?
   createdAt DateTime? @default(now())
   updateAt  DateTime? @default(now())
 
   // Relation
-  categoryId Int
-  Category   Category    @relation(fields: [categoryId], references: [id])
+  categoryId Int?
+  Category   Category?   @relation(fields: [categoryId], references: [id])
   itemOrder  itemOrder[]
 }
 
@@ -69,13 +73,14 @@ model Order {
   updateAt    DateTime? @default(now())
 
   // Relation
-  orderBy   Int
-  User      User        @relation(fields: [orderBy], references: [id])
+  orderBy   Int?
+  User      User?       @relation(fields: [orderBy], references: [id])
   itemOrder itemOrder[]
 }
 
 model itemOrder {
-  id Int @id @unique @default(autoincrement())
+  id       Int @id @unique @default(autoincrement())
+  quantity Int
 
   // Relation
   productId Int

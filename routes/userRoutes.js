@@ -41,7 +41,7 @@ userRoutes.post("/", async (req, res) => {
       name: name,
       email: email,
       password: hashedPassword,
-      phone: parseInt(phone),
+      phone: phone,
       address: address,
       gender: gender,
       profileImage: profileImage,

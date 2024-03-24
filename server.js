@@ -9,6 +9,9 @@ const PORT = process.env.PORT || 3000;
 const { prisma } = require("./config/prisma");
 const { userRoutes } = require("./routes/userRoutes");
 const { categoryRoutes } = require("./routes/categoryRoutes");
+const { productRoutes } = require("./routes/productRoutes");
+const { itemOrderRoutes } = require("./routes/itemOrderRoutes");
+const { userAdminRoutes } = require("./routes/userAdminRoutes");
 
 // Callback <> biar Req App express kepake
 app.use(cors());
@@ -35,3 +38,12 @@ app.use("/users", userRoutes);
 
 // categoryRoutes
 app.use("/category", categoryRoutes);
+
+// productRoutes
+app.use("/product", productRoutes);
+
+// itemOrderRoutes
+app.use("/itemOrder", itemOrderRoutes);
+
+// userAdminRoutes
+app.use("/userAdmin", userAdminRoutes);
