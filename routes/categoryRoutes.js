@@ -1,7 +1,5 @@
 const express = require("express");
-const {
-  prisma
-} = require("../config/prisma");
+const { prisma } = require("../config/prisma");
 const categoryRoutes = express.Router();
 
 // GET ALL CATEGORIES
@@ -22,7 +20,7 @@ categoryRoutes.get("/:id", async (req, res) => {
     req.status(400).jason({
       message: "category not found!",
     });
-  };
+  }
 
   res.status(200).send(category);
 });

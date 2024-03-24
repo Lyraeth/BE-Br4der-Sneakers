@@ -1,7 +1,5 @@
 const express = require("express");
-const {
-  prisma
-} = require("../config/prisma");
+const { prisma } = require("../config/prisma");
 const productRoutes = express.Router();
 
 // GET ALL PRODUCTS
@@ -22,7 +20,7 @@ productRoutes.get("/:id", async (req, res) => {
     return res.status(400).json({
       messasge: "Product not found!",
     });
-  };
+  }
 
   res.status(200).send(product);
 });
