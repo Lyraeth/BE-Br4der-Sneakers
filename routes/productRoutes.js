@@ -33,10 +33,10 @@ productRoutes.post("/", async (req, res) => {
     data: {
       name: productData.name,
       desc: productData.desc,
-      price: productData.price,
-      stock: productData.stock,
+      price: parseInt(productData.price),
+      stock: parseInt(productData.stock),
       imageUrl: productData.imageUrl,
-      categoryId: productData.categoryId,
+      categoryId: parseInt(productData.categoryId),
     },
   });
 
