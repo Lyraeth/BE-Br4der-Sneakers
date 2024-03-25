@@ -8,8 +8,9 @@ Selama project ini berlangsung terdiri dari 4 anggota dan dibagi berbagai divisi
 3. Farhan sebagai Back-End Engineer
 4. Fazril sebagai Fullstack Engineer
 
+
 Dalam Mendevelop Website ini kami menggunakan tools :
 1. UI/UX Designer : Figma
-2. Front-end Engineer : ReactJS, Tailwindcss
-3. Back-end Engineer : ExpressJS, Prisma, Postman, MySql
+2. Front-End Engineer : ReactJS, Tailwindcss
+3. Back-End Engineer : ExpressJS, Prisma, Postman, MySql
 4. Management Project : Google Sheets, Discord
