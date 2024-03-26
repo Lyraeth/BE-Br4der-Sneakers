@@ -29,16 +29,26 @@ orderRoutes.get("/:id", async (req, res) => {
 orderRoutes.post("/", async (req, res) => {
   const orderData = req.body;
 
-  const order = await prisma.order.create({
+  const createOrder = await prisma.order.create({
     data: {
       statusOrder: orderData.statusOrder,
       totalOrder: parseInt(orderData.totalOrder),
       orderBy: parseInt(orderData.orderBy),
     },
   });
+
+  const createItemOrder = await prisma.itemOrder.create({
+    data: {
+      quantity: parseInt(orderData.quantity),
+      productId: parseInt(orderData.productId),
+      orderId: createOrder.id,
+    },
+  });
+
   res.status(200).json({
-    data: order,
-    message: "Order created, successfully!",
+    data: createOrder,
+    createItemOrder,
+    message: "Order and itemOrder created, successfully!",
   });
 });
 
@@ -65,29 +75,14 @@ orderRoutes.patch("/:id", async (req, res) => {
 
 // DELETE ORDER DATA
 orderRoutes.delete("/:id", async (req, res) => {
-  const orderId = req.params.id;
-
-  const order = await prisma.order.findUnique({
-    where: {
-      id: parseInt(orderId),
-    },
-  });
-
-  if (!order) {
-    return res.status(400).json({
-      message: "Order data not found!",
-    });
-  }
-
+  const { id } = req.params;
   await prisma.order.delete({
     where: {
-      id: parseInt(orderId),
+      id: parseInt(id),
     },
   });
-
   res.status(200).json({
-    data: order,
-    message: "Order data deleted, successfully!",
+    message: `Order with id: ${id} has been deleted`,
   });
 });
 
