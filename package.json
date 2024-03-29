@@ -1,6 +1,9 @@
 {
   "name": "br4ther-be",
   "version": "1.0.0",
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {

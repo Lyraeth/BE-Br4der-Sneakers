@@ -14,37 +14,37 @@ datasource db {
 }
 
 model User {
-  id           Int       @id @unique @default(autoincrement())
+  id           Int      @id @unique @default(autoincrement())
   name         String
-  email        String    @unique
+  email        String   @unique
   password     String
-  phone        String    @unique @db.VarChar(20)
+  phone        String   @unique @db.VarChar(20)
   address      String
   gender       String
   profileImage String?
-  createdAt    DateTime? @default(now())
-  updateAt     DateTime? @default(now())
+  createdAt    DateTime @default(now())
+  updateAt     DateTime @updatedAt
   Order        Order[]
 }
 
 model userAdmin {
-  id        Int       @id @unique @default(autoincrement())
+  id        Int      @id @unique @default(autoincrement())
   name      String
-  email     String    @unique
+  email     String   @unique
   password  String
-  createdAt DateTime? @default(now())
-  updateAt  DateTime? @default(now())
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
 }
 
 model Product {
-  id        Int       @id @unique @default(autoincrement())
-  name      String    @unique
+  id        Int      @id @unique @default(autoincrement())
+  name      String   @unique
   desc      String
   price     Int
   stock     Int
   imageUrl  String?
-  createdAt DateTime? @default(now())
-  updateAt  DateTime? @default(now())
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
 
   // Relation
   categoryId Int?
@@ -53,10 +53,10 @@ model Product {
 }
 
 model Category {
-  id        Int       @id @unique @default(autoincrement())
-  name      String    @unique
-  createdAt DateTime? @default(now())
-  updateAt  DateTime? @default(now())
+  id        Int      @id @unique @default(autoincrement())
+  name      String   @unique
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
 
   // Relation
   product Product[] // 1 Category bisa punya banyak Produk
@@ -67,8 +67,8 @@ model Order {
   statusOrder String
   dateOrder   DateTime? @default(now())
   totalOrder  Int
-  createdAt   DateTime? @default(now())
-  updateAt    DateTime? @default(now())
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime  @updatedAt
 
   // Relation
   orderBy   Int?
