@@ -8,8 +8,8 @@ CREATE TABLE `User` (
     `address` VARCHAR(191) NOT NULL,
     `gender` VARCHAR(191) NOT NULL,
     `profileImage` VARCHAR(191) NULL,
-    `createdAt` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
-    `updateAt` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updateAt` DATETIME(3) NOT NULL,
 
     UNIQUE INDEX `User_id_key`(`id`),
     UNIQUE INDEX `User_email_key`(`email`),
@@ -23,8 +23,8 @@ CREATE TABLE `userAdmin` (
     `name` VARCHAR(191) NOT NULL,
     `email` VARCHAR(191) NOT NULL,
     `password` VARCHAR(191) NOT NULL,
-    `createdAt` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
-    `updateAt` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updateAt` DATETIME(3) NOT NULL,
 
     UNIQUE INDEX `userAdmin_id_key`(`id`),
     UNIQUE INDEX `userAdmin_email_key`(`email`),
@@ -38,10 +38,10 @@ CREATE TABLE `Product` (
     `desc` VARCHAR(191) NOT NULL,
     `price` INTEGER NOT NULL,
     `stock` INTEGER NOT NULL,
-    `imageUrl` VARCHAR(191) NOT NULL,
-    `createdAt` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
-    `updateAt` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
-    `categoryId` INTEGER NOT NULL,
+    `imageUrl` VARCHAR(191) NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updateAt` DATETIME(3) NOT NULL,
+    `categoryId` INTEGER NULL,
 
     UNIQUE INDEX `Product_id_key`(`id`),
     UNIQUE INDEX `Product_name_key`(`name`),
@@ -52,8 +52,8 @@ CREATE TABLE `Product` (
 CREATE TABLE `Category` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(191) NOT NULL,
-    `createdAt` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
-    `updateAt` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updateAt` DATETIME(3) NOT NULL,
 
     UNIQUE INDEX `Category_id_key`(`id`),
     UNIQUE INDEX `Category_name_key`(`name`),
@@ -66,9 +66,9 @@ CREATE TABLE `Order` (
     `statusOrder` VARCHAR(191) NOT NULL,
     `dateOrder` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
     `totalOrder` INTEGER NOT NULL,
-    `createdAt` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
-    `updateAt` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
-    `orderBy` INTEGER NOT NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updateAt` DATETIME(3) NOT NULL,
+    `orderBy` INTEGER NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -76,6 +76,7 @@ CREATE TABLE `Order` (
 -- CreateTable
 CREATE TABLE `itemOrder` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `quantity` INTEGER NOT NULL,
     `productId` INTEGER NOT NULL,
     `orderId` INTEGER NOT NULL,
 
@@ -84,10 +85,10 @@ CREATE TABLE `itemOrder` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- AddForeignKey
-ALTER TABLE `Product` ADD CONSTRAINT `Product_categoryId_fkey` FOREIGN KEY (`categoryId`) REFERENCES `Category`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `Product` ADD CONSTRAINT `Product_categoryId_fkey` FOREIGN KEY (`categoryId`) REFERENCES `Category`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `Order` ADD CONSTRAINT `Order_orderBy_fkey` FOREIGN KEY (`orderBy`) REFERENCES `User`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `Order` ADD CONSTRAINT `Order_orderBy_fkey` FOREIGN KEY (`orderBy`) REFERENCES `User`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `itemOrder` ADD CONSTRAINT `itemOrder_productId_fkey` FOREIGN KEY (`productId`) REFERENCES `Product`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;

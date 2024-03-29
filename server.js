@@ -6,7 +6,6 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const { prisma } = require("./config/prisma");
 const { userRoutes } = require("./routes/userRoutes");
 const { categoryRoutes } = require("./routes/categoryRoutes");
 const { productRoutes } = require("./routes/productRoutes");
@@ -19,15 +18,14 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// function untuk route asal
+function handleErrorRoutes(req, res, next) {
+  res.send("Oops! nothing here");
+}
+
 // Create response for success route
 app.get("/", async (req, res) => {
-  res.send("Routes success");
-});
-
-app.all("*", async (req, res) => {
-  res.json({
-    message: "Routes you're looking is not found",
-  });
+  res.send("Hello There!");
 });
 
 app.listen(PORT, "0.0.0.0", () => {
@@ -51,3 +49,6 @@ app.use("/order", orderRoutes);
 
 // userAdminRoutes
 app.use("/userAdmin", userAdminRoutes);
+
+// handleErrorRoute
+app.use(handleErrorRoutes);
