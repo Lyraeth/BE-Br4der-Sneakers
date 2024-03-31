@@ -8,7 +8,7 @@ Brader Store adalah sebuah website online shop yang dimana memfasilitasi kepada 
 
 <p>Selama project ini berlangsung terdiri dari 4 anggota dan dibagi berbagai divisi :</p>
 <ul>
- <li><a href="https://github.com/monsterkronus">Ghozy</a> sebagai UI/UX Designer</li>
+ <li><a href="https://github.com/monsterkronus">Ghozy</a> sebagai UI/UX & Front-End Engineer</li>
  <li><a href="https://github.com/rprasya">Rinaldi</a> sebagai Front-End Engineer</li>
  <li><a href="https://github.com/Lyraeth">Farhan</a> sebagai Back-End Engineer</li>
  <li><a href="https://github.com/fazrilarief">Fazril</a> sebagai Back-End Engineer</li>
