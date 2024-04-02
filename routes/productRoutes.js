@@ -8,7 +8,7 @@ productRoutes.get("/", async (req, res) => {
   res.status(200).send(products);
 });
 
-// GET ALL PRODUCTS
+// GET ALL PRODUCTS BY RESULT INPUT
 productRoutes.get("/results=:limit", async (req, res) => {
   // Ambil nilai jumlah data yang ingin ditampilkan dari query parameter
   const limit = parseInt(req.params.limit);
@@ -24,6 +24,19 @@ productRoutes.get("/results=:limit", async (req, res) => {
   });
 
   res.status(200).send(products);
+});
+
+// GET ALL PRODUCTS BY CategoryId
+productRoutes.get("/categoryId=:categoryId", async (req, res) => {
+  const categoryId = req.params.categoryId;
+
+  const product = await prisma.product.findMany({
+    where: {
+      categoryId: parseInt(categoryId),
+    },
+  });
+
+  res.status(200).send(product);
 });
 
 // GET PRODUCT BY ID
