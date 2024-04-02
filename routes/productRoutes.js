@@ -1,6 +1,8 @@
 const express = require("express");
 const { prisma } = require("../config/prisma");
 const productRoutes = express.Router();
+const cloudinary = require("../utils/cloudinary");
+const upload = require("../middleware/multer");
 
 // GET ALL PRODUCTS
 productRoutes.get("/", async (req, res) => {
@@ -57,24 +59,32 @@ productRoutes.get("/:id", async (req, res) => {
 });
 
 // CREATE NEW PRODUCT DATA
-productRoutes.post("/", async (req, res) => {
-  const productData = req.body;
+productRoutes.post("/", upload.single("imageUrl"), async (req, res) => {
+  try {
+    const { name, desc, price, stock, categoryId } = req.body;
 
-  const product = await prisma.product.create({
-    data: {
-      name: productData.name,
-      desc: productData.desc,
-      price: parseInt(productData.price),
-      stock: parseInt(productData.stock),
-      imageUrl: productData.imageUrl,
-      categoryId: parseInt(productData.categoryId),
-    },
-  });
+    const image = await cloudinary.uploader.upload(req.file.path);
 
-  res.status(200).json({
-    data: product,
-    messasge: "Product data created, successfully!",
-  });
+    const product = await prisma.product.create({
+      data: {
+        name: name,
+        desc: desc,
+        price: parseInt(price),
+        stock: parseInt(stock),
+        imageUrl: image.secure_url,
+        categoryId: parseInt(categoryId),
+      },
+    });
+
+    res.status(200).json({
+      data: product,
+      messasge: "Product data created, successfully!",
+    });
+  } catch (err) {
+    res.status(400).json({
+      err: "Error create product data or some fields are missing!",
+    });
+  }
 });
 
 // UPDATE PRODUCT DATA
