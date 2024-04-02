@@ -8,6 +8,37 @@ productRoutes.get("/", async (req, res) => {
   res.status(200).send(products);
 });
 
+// GET ALL PRODUCTS BY RESULT INPUT
+productRoutes.get("/results=:limit", async (req, res) => {
+  // Ambil nilai jumlah data yang ingin ditampilkan dari query parameter
+  const limit = parseInt(req.params.limit);
+
+  // Pastikan limit yang diberikan adalah angka yang valid
+  if (isNaN(limit) || limit <= 0) {
+    return res.status(400).send("Limit harus berupa angka positif");
+  }
+
+  // Gunakan metode findFirst dari Prisma untuk membatasi jumlah data yang ditampilkan
+  const products = await prisma.product.findMany({
+    take: limit, // Ambil hanya sejumlah data sesuai dengan limit yang diberikan
+  });
+
+  res.status(200).send(products);
+});
+
+// GET ALL PRODUCTS BY CategoryId
+productRoutes.get("/categoryId=:categoryId", async (req, res) => {
+  const categoryId = req.params.categoryId;
+
+  const product = await prisma.product.findMany({
+    where: {
+      categoryId: parseInt(categoryId),
+    },
+  });
+
+  res.status(200).send(product);
+});
+
 // GET PRODUCT BY ID
 productRoutes.get("/:id", async (req, res) => {
   const product = await prisma.product.findUnique({
