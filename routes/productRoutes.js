@@ -8,21 +8,40 @@ productRoutes.get("/", async (req, res) => {
   res.status(200).send(products);
 });
 
-// GET PRODUCT BY ID
-productRoutes.get("/:id", async (req, res) => {
-  const product = await prisma.product.findUnique({
-    where: {
-      id: parseInt(req.params.id),
-    },
-  });
+// GET ALL PRODUCTS
+productRoutes.get("/results", async (req, res) => {
+  // Ambil nilai jumlah data yang ingin ditampilkan dari parameter query
+  const limit = parseInt(req.query.limit);
 
-  if (!product) {
-    return res.status(400).json({
-      messasge: "Product not found!",
-    });
+  // Pastikan limit yang diberikan adalah angka yang valid
+  if (isNaN(limit) || limit <= 0) {
+    return res.status(400).send("Limit harus berupa angka positif");
   }
 
-  res.status(200).send(product);
+  // Gunakan metode findFirst dari Prisma untuk membatasi jumlah data yang ditampilkan
+  const products = await prisma.product.findMany({
+    take: limit, // Ambil hanya sejumlah data sesuai dengan limit yang diberikan
+  });
+
+  res.status(200).send(products);
+});
+
+// GET PRODUCT BY ID
+productRoutes.get("/results/:limit", async (req, res) => {
+  // Ambil nilai jumlah data yang ingin ditampilkan dari path parameter
+  const limit = parseInt(req.params.limit);
+
+  // Pastikan limit yang diberikan adalah angka yang valid
+  if (isNaN(limit) || limit <= 0) {
+    return res.status(400).send("Limit harus berupa angka positif");
+  }
+
+  // Gunakan metode findFirst dari Prisma untuk membatasi jumlah data yang ditampilkan
+  const products = await prisma.product.findMany({
+    take: limit, // Ambil hanya sejumlah data sesuai dengan limit yang diberikan
+  });
+
+  res.status(200).send(products);
 });
 
 // CREATE NEW PRODUCT DATA
