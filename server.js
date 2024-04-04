@@ -12,6 +12,7 @@ const { productRoutes } = require("./routes/productRoutes");
 const { itemOrderRoutes } = require("./routes/itemOrderRoutes");
 const { orderRoutes } = require("./routes/orderRoutes");
 const { userAdminRoutes } = require("./routes/userAdminRoutes");
+const { signUpRoutes } = require("./routes/signUpRoutes");
 
 // Callback <> biar Req App express kepake
 app.use(cors());
@@ -49,6 +50,9 @@ app.use("/order", orderRoutes);
 
 // userAdminRoutes
 app.use("/userAdmin", userAdminRoutes);
+
+// signUpRoutes
+app.use("/signup", signUpRoutes);
 
 // handleErrorRoute
 app.use(handleErrorRoutes);
