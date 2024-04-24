@@ -43,15 +43,11 @@ app.get("/helloworld", async (req, res) => {
 });
 
 app.get("/login", async (req, res) => {
-  res.json({
-    message: "input email and password",
-  });
+  res.sendFile(__dirname + "/web/login.html");
 });
 
 app.get("/halamanAuth", authenticateToken, async (req, res) => {
-  res.json({
-    message: "Successfully login with Auth",
-  });
+  res.sendFile(__dirname + "/web/halamanAuth.html");
 });
 // Local auth Testing
 
