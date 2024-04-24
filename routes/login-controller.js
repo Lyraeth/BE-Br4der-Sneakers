@@ -24,8 +24,8 @@ loginController.post("/login", async (req, res) => {
   );
 
   // Set cookie with token
-  res.cookie(" ", token, { httpOnly: true, maxAge: 10000 }); // Expires in 10 detik
-  res.send({ message: "Login successful" });
+  res.cookie(" ", token, { httpOnly: true, maxAge: 3600000 }); // Expires in 10 detik
+  res.send({ message: "Login successful", token: token });
 });
 
 module.exports = { loginController };
