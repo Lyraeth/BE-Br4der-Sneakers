@@ -19,14 +19,13 @@ loginController.post("/login", async (req, res) => {
     return res.status(401).send({ message: "Invalid email or password" });
 
   const token = jwt.sign(
-    { id: user.id, email: user.email },
-    process.env.JWT_SECRET,
-    { expiresIn: "1h" }
+    { id: user.id, email: user.email, name: user.name },
+    process.env.JWT_SECRET
   );
 
   // Set cookie with token
-  res.cookie(" ", token, { httpOnly: true, maxAge: 60000 }); // Expires in 1 minute
-  res.send({ message: "Login successful", token: token });
+  res.cookie(" ", token, { httpOnly: true, maxAge: 10000 }); // Expires in 10 detik
+  res.send({ message: "Login successful" });
 });
 
 module.exports = { loginController };
