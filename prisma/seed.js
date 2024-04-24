@@ -496,7 +496,7 @@ async function user() {
       name: "Sudo",
       email: "admin123@gmail.com",
       password: hashedPassword,
-      phone: 1122334455,
+      phone: "1122334455",
       address: "Br4der shop",
       gender: "undefined",
       profileImage: "admin.photobox",
