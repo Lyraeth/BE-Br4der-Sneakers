@@ -1,6 +1,4 @@
 require("dotenv").config();
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const authenticateToken = require("./middleware/auth");
 const cookieParser = require("cookie-parser");
 
