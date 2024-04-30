@@ -1,5 +1,5 @@
 <div align="center">
-   <img src="https://cdn.pixabay.com/photo/2024/03/31/05/44/05-44-53-541_1280.jpg" width="400">
+   <img src="[https://cdn.pixabay.com/photo/2024/03/31/05/44/05-44-53-541_1280.jpg](https://i.pinimg.com/564x/a7/64/45/a7644524e486b6641d08c1639ea99a01.jpg)" width="400">
 </div>
  
 ## About this Project
@@ -17,8 +17,8 @@ Brader Store adalah sebuah website online shop yang dimana memfasilitasi kepada 
 Dalam Mendevelop Website ini kami menggunakan tools :
 <ul>
  <li>UI/UX Designer : Figma</li>
- <li>Front-End Engineer : ReactJS, Tailwindcss</li>
- <li>Back-End Engineer : ExpressJS, Prisma, Postman, MySql</li>
+ <li>Front-End : ReactJS, Tailwindcss</li>
+ <li>Back-End : ExpressJS, Prisma, Postman, MySql</li>
  <li>Management Project : Google Sheets, Discord</li>
 </ul>
 
