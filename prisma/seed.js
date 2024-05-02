@@ -12,35 +12,35 @@ async function category() {
         create: [
           {
             name: "Nike Air Force 1 '07",
-            desc: "Nike Air Force 1",
+            desc: "Nike Air Force 1 '07",
             price: 1549000,
             stock: 10,
             imageUrl:
-              "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b7d9211c-26e7-431a-ac24-b0540fb3c00f/air-force-1-07-shoes-WrLlWX.png",
+              "https://www.footlocker.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-NIKE-F34KBNIK5-NIKCW2288111-White.jpg",
           },
           {
-            name: "Nike Air Max Excee",
+            name: "Nike Air Max 1",
             desc: "Nike Air Max",
-            price: 1549000,
+            price: 2199000,
             stock: 10,
             imageUrl:
-              "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a7f07bf7-7896-48c7-b53d-ab5daf86f84e/air-max-excee-shoes-Zvl8cs.png",
+              "https://www.footlocker.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-NIKE-FFSSBNIK5-NIKFD9082107-White.jpg",
           },
           {
-            name: "Nike Dunk Low (GS)",
+            name: "Nike Dunk Low",
             desc: "Nike Dunk Low",
-            price: 1349000,
+            price: 1129000,
             stock: 10,
             imageUrl:
-              "https://dynamic.zacdn.com/jPqdE4KAhoq8gsJ1AJ9r4bG2FdQ=/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/nike-7594-1884434-1.jpg",
+              "https://www.footlocker.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-NIKE-F34KBNIK5-NIKCW1590600-Red.jpg",
           },
           {
             name: "Nike Dunk Low Retro",
-            desc: "Nike Dunk Low",
+            desc: "Nike Dunk Low Retro",
             price: 1549000,
             stock: 10,
             imageUrl:
-              "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7514ef15-e369-4f2c-a945-99334c59edcd/dunk-low-retro-shoes-69h36X.png",
+              "https://www.footlocker.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-NIKE-F34KBNIK5-NIKDV0831103-White.jpg",
           },
           {
             name: "Nike Cortez",
@@ -48,7 +48,7 @@ async function category() {
             price: 1299000,
             stock: 10,
             imageUrl:
-              "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3086bc60-2873-4bb1-9858-6ee2f94757e0/cortez-shoes-0VH7qz.png",
+              "https://www.footlocker.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-NIKE-FFSSBNIK5-NIKDM4044100-White.jpg",
           },
           {
             name: "Nike V2K Run",
@@ -56,23 +56,7 @@ async function category() {
             price: 1909000,
             stock: 10,
             imageUrl:
-              "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a8ecc919-b1f0-40d6-8f1d-b040480424c9/v2k-run-shoes-zJV8TV.png",
-          },
-          {
-            name: "Nike Air Max 97",
-            desc: "Nike Air Max",
-            price: 1908000,
-            stock: 10,
-            imageUrl:
-              "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/14de6943-8c87-4b9b-9585-80dea96a70d3/air-max-97-shoes-EBZrb8.png",
-          },
-          {
-            name: "Nike Waffle Nav",
-            desc: "Nike Waffle Nav",
-            price: 1199000,
-            stock: 10,
-            imageUrl:
-              "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/355cb752-6f3c-4071-b8c2-20d74d15387a/waffle-nav-shoes-4j1X82.png",
+              "https://www.footlocker.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-NIKE-FFSSBNIK5-NIKFD0736101-White.jpg",
           },
           {
             name: "Nike P-6000",
@@ -80,15 +64,31 @@ async function category() {
             price: 1429000,
             stock: 10,
             imageUrl:
-              "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8ace906f-7a7b-4da3-b168-355e415a11d3/p-6000-shoes-QcQbpx.png",
+              "https://www.footlocker.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-NIKE-FFSSBNIK5-NIKCD6404103-White.jpg",
           },
           {
-            name: "Nike Full Force Low",
-            desc: "Nike Full Force Low",
-            price: 1399000,
+            name: "Nike Air Max 97",
+            desc: "Nike Air Max 97",
+            price: 1908000,
             stock: 10,
             imageUrl:
-              "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/812a427a-3923-4a9e-96de-16c93d658542/full-force-low-shoes-w2MKmW.png",
+              "https://www.footlocker.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-NIKE-FFSSBNIK5-NIK921522011-Black.jpg",
+          },
+          {
+            name: "W NIKE PHOENIX WAFFLE",
+            desc: "W NIKE PHOENIX WAFFLE",
+            price: 1549000,
+            stock: 10,
+            imageUrl:
+              "https://www.footlocker.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-NIKE-FFSSBNIK5-NIKFD2196100-White.jpg",
+          },
+          {
+            name: "FORCE 1 LOW EASYON LV8 1 (PS)",
+            desc: "FORCE 1 LOW EASYON LV8 1 (PS)",
+            price: 1169000,
+            stock: 10,
+            imageUrl:
+              "https://www.footlocker.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-NIKE-FFSSBNIK5-NIKFZ5522161-Beige.jpg",
           },
         ],
       },
