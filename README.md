@@ -17,8 +17,8 @@ Brader Store adalah sebuah website online shop yang dimana memfasilitasi kepada 
 Dalam Mendevelop Website ini kami menggunakan tools :
 <ul>
  <li>UI/UX Designer : Figma</li>
- <li>Front-End Engineer : ReactJS, Tailwindcss</li>
- <li>Back-End Engineer : ExpressJS, Prisma, Postman, MySql</li>
+ <li>Front-End : ReactJS, Tailwindcss</li>
+ <li>Back-End : ExpressJS, Prisma, Postman, MySql</li>
  <li>Management Project : Google Sheets, Discord</li>
 </ul>
 

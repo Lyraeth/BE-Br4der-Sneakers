@@ -483,6 +483,28 @@ async function userAdmin() {
   console.log(Admin);
 }
 
+async function user() {
+  const password = "admin123";
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
+
+  const user = await prisma.user.upsert({
+    where: { id: 1 },
+    update: {},
+    create: {
+      id: 1,
+      name: "Sudo",
+      email: "admin123@gmail.com",
+      password: hashedPassword,
+      phone: "1122334455",
+      address: "Br4der shop",
+      gender: "undefined",
+      profileImage: "admin.photobox",
+    },
+  });
+  console.log(user);
+}
+
 userAdmin()
   .then(async () => {
     await prisma.$disconnect();
@@ -499,6 +521,16 @@ category()
   })
   .catch(async (e) => {
     console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });
+
+user()
+  .then(async () => {
+    await prisma.$disconnect();
+  })
+  .catch(async (e) => {
+    console.log(e);
     await prisma.$disconnect();
     process.exit(1);
   });

@@ -18,9 +18,9 @@ model User {
   name         String
   email        String   @unique
   password     String
-  phone        String   @unique @db.VarChar(20)
-  address      String
-  gender       String
+  phone        String?  @unique @db.VarChar(20)
+  address      String?
+  gender       String?
   profileImage String?
   createdAt    DateTime @default(now())
   updateAt     DateTime @updatedAt
